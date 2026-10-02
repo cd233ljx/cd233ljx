@@ -8,7 +8,7 @@ CS 学生。写点校园工具，也折腾 AI。
 
 给广财同学做的校园助手。课表、成绩、学业进度，还有带来源的校园问答，都放在一起。
 
-有 Web 和微信小程序。源码私有，可以[直接试试 ↗](https://gdufe-agent.utopiacd.online)。
+有 Web 和微信小程序。源码私有，可以[直接试试](https://gdufe-agent.utopiacd.online)。
 
 [![星校园预览，使用合成演示数据](assets/xing-campus.png)](https://gdufe-agent.utopiacd.online)
 
