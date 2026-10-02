@@ -1,0 +1,55 @@
+name: Update contribution snake
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 20 * * *' # 04:23 Asia/Shanghai
+  push:
+    branches: [main]
+    paths: ['.github/workflows/contributions.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contribution-snake
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Generate light and dark animations
+        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-snake.svg?color_snake=#b77959&color_dots=#f4f0eb,#eedac9,#d9b294,#bf8966,#965d42
+            dist/github-snake-dark.svg?color_snake=#dca17a&color_dots=#242424,#48372d,#71513c,#a47552,#dca17a
+
+      - name: Publish generated images
+        shell: bash
+        run: |
+          set -euo pipefail
+          publish_dir="$RUNNER_TEMP/profile-contributions"
+          if git ls-remote --exit-code --heads origin output > /dev/null; then
+            git fetch --depth=1 origin output:refs/remotes/origin/output
+            git worktree add --detach "$publish_dir" origin/output
+          else
+            git worktree add --detach "$publish_dir" HEAD
+            git -C "$publish_dir" checkout --orphan profile-output
+            git -C "$publish_dir" rm -rf .
+          fi
+          cp dist/github-snake.svg dist/github-snake-dark.svg "$publish_dir/"
+          git -C "$publish_dir" add github-snake.svg github-snake-dark.svg
+          if git -C "$publish_dir" diff --cached --quiet; then
+            exit 0
+          fi
+          git -C "$publish_dir" -c user.name='github-actions[bot]' \
+            -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'Update contribution animations'
+          output_commit=$(git -C "$publish_dir" rev-parse HEAD)
+          git push origin "$output_commit:refs/heads/output"
