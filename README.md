@@ -3,22 +3,21 @@
   <img src="assets/header-light.svg" width="900" alt="UtoPiaCD" />
 </picture>
 
-CS 学生。写点校园工具，也折腾 AI。
-
-[博客](https://blog.utopiacd.online) · [星校园](https://gdufe-agent.utopiacd.online)
+[个人博客](https://blog.utopiacd.online) · [星校园](https://gdufe-agent.utopiacd.online)
 
 ### 星校园 · GDUFE Campus Agent
 
-给广财同学做的校园助手。课表、成绩、学业进度，还有带来源的校园问答，都放在一起。
+给广财同学做的校园助手。课表、成绩、学业进度，校园问答等.....
 
-有 Web 和微信小程序。源码私有，可以[试试](https://gdufe-agent.utopiacd.online)。
+有 Web 和微信小程序。源码私有，欢迎[体验！](https://gdufe-agent.utopiacd.online)。
 
-[![星校园预览，使用合成演示数据](assets/xing-campus.png)](https://gdufe-agent.utopiacd.online)
+[![预览](assets/xing-campus.png)](https://gdufe-agent.utopiacd.online)
 
 ### 还有几个项目
 
+- [校园工具箱](https://github.com/cd233ljx/gdufe-campus-balance) — 水电余额监控、校园网自动登录与低额提醒。
+- [微信桥接OpenAI Dot](https://github.com/cd233ljx/wechat-dot-bridge) — 将个人微信桥接至Dot 
 - [CampusClaw](https://github.com/cd233ljx/CampusClaw-PPT) — 查教务、做规划，把结果记到飞书。
-- [NL2SQL](https://github.com/cd233ljx/nl2sql_dev) — 自然语言转 SQL，比赛项目。
 - [AgentBeacon](https://github.com/cd233ljx/agentbeacon) — 给 AI 编程助手做了一颗状态灯。
 
 ---
