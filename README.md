@@ -9,7 +9,7 @@
 
 给广财同学做的校园助手。课表、成绩、学业进度，校园问答等.....
 
-有 Web 和微信小程序。源码私有，欢迎[体验！](https://gdufe-agent.utopiacd.online)。
+有 Web 和微信小程序。源码私有，欢迎[体验！](https://gdufe-agent.utopiacd.online)
 
 [![预览](assets/xing-campus.png)](https://gdufe-agent.utopiacd.online)
 
